@@ -27,7 +27,17 @@
 .App-link {
   color: #61dafb;
 }
-
+.valle {
+  background-color: green;
+  text-align: center;
+  vertical-align: center;
+}
+.punta {
+  background-color: red;
+}
+.llana {
+  background-color: orange;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

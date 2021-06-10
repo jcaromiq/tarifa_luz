@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState, useRef, useEffect} from "react";
+import {current as currentZone} from "./Zone";
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [time, setTime] = useState(currentZone());
+
+    useEffect(() => {
+        const interval = setInterval(() => setTime(currentZone()), 1000);
+        return () => {
+            setTime(currentZone());
+        };
+    }, []);
+    return (
+        <div className={"vh-100 w-100 " + time}>
+            <h1>{time}</h1>
+        </div>
+    );
 }
 
 export default App;
