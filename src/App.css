@@ -1,16 +1,24 @@
-
+body {
+  text-align: center;
+}
 .valle {
-  border-bottom: 9px green solid;
-  font-size: 30px;
+  font-size: 40px;
+  padding: 10px;
+  font-weight: bold;
+  display: inline-block;
   background-color: green;
 }
 .punta {
-  border-bottom: 9px red solid;
-  font-size: 30px;
+  font-size: 40px;
+  padding: 10px;
+  font-weight: bold;
+  display: inline-block;
   background-color: red;
 }
 .llana {
-  border-bottom: 8px yellow solid;
-  font-size: 30px;
+  font-size: 40px;
+  padding: 10px;
+  font-weight: bold;
+  display: inline-block;
   background-color: yellow;
 }
