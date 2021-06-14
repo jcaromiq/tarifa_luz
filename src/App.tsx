@@ -11,6 +11,12 @@ function App() {
             clearInterval(interval);
         };
     }, []);
+    let nextZone;
+    if (zone.weekend) {
+        nextZone = <p className="display-6">Lunes a las {zone.to}</p>
+    } else {
+        nextZone = <p className="display-6">a las {zone.to}</p>
+    }
     return (
         <div className="container p-4">
             <div className="card-body">
@@ -20,17 +26,14 @@ function App() {
             </div>
             <div className="card-body">
                 <h2 className="display-3 border-bottom"><strong>Franja siguiente</strong></h2>
-                <p className="display-6">8:00 a 10:00</p>
-                <div><p className={"text-uppercase display-4 " + zone.current}>Hora {zone.current}</p></div>
+                {nextZone}
+                <div><p className={"text-uppercase display-4 " + zone.next}>Hora {zone.next}</p></div>
 
             </div>
-            <p className="lead p-5">Hecho con <a href="https://www.buymeacoffee.com/jcaro" target="_blank" rel="noreferrer" >❤️</a> por <a
-                href="https://github.com/jcaromiq/" target="_blank" rel="noreferrer" >Joaco</a></p>
+            <p className="lead p-5">Hecho con <a href="https://www.buymeacoffee.com/jcaro" target="_blank"
+                                                 rel="noreferrer">❤️</a> por <a
+                href="https://github.com/jcaromiq/" target="_blank" rel="noreferrer">Joaco</a></p>
         </div>
-
-
-
-
     );
 }
 
