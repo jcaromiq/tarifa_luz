@@ -12,9 +12,11 @@ function App() {
         };
     }, []);
     return (
-        <div className="d-flex flex-column justify-content-center pt-5 text-center">
-            <h1>Franja actual</h1>
-            <p className={"text-uppercase font-weight-bold mt-5 " + time}>Hora {time}</p>
+        <div className="space-y-5 d-flex flex-column justify-content-center pt-5 text-center">
+            <div><h1>Franja actual</h1></div>
+            <div><p className={"text-uppercase font-weight-bold " + time}>Hora {time}</p></div>
+            <p>Hecho con <a href="https://www.buymeacoffee.com/jcaro" target="_blank" rel="noreferrer" >❤️</a> por <a
+                href="https://github.com/jcaromiq/" target="_blank" rel="noreferrer" >Joaco</a></p>
         </div>
     );
 }

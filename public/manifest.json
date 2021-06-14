@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Franja tarifa Eléctrica",
+  "name": "Comprueba la tarifa de la franja eléctrica actual",
   "icons": [
     {
       "src": "favicon.ico",

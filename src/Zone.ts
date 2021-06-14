@@ -9,7 +9,10 @@ export function current(): ZoneEnum {
     const currentHour = date.getHours();
     const dayOfWeek = date.getDay()
 
-    if (currentHour >= 0 && currentHour < 8 || (dayOfWeek == 0 || dayOfWeek == 6)) {
+    if (dayOfWeek === 0 || dayOfWeek === 6) {
+        return ZoneEnum.Valle;
+    }
+    if (currentHour >= 0 && currentHour < 8) {
         return ZoneEnum.Valle;
     }
     if (currentHour >= 8 && currentHour < 10) {
