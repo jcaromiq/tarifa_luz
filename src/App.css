@@ -1,24 +1,23 @@
 body {
   text-align: center;
 }
-.valle {
-  font-size: 40px;
+.zone {
   padding: 10px;
-  font-weight: bold;
   display: inline-block;
-  background-color: green;
+  border-radius: 10px;
+}
+.valle {
+  background-color: #28b62c;
+  border-color: #23a127;
+  color: #155724;
 }
 .punta {
-  font-size: 40px;
-  padding: 10px;
-  font-weight: bold;
-  display: inline-block;
-  background-color: red;
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
 }
 .llana {
-  font-size: 40px;
-  padding: 10px;
-  font-weight: bold;
-  display: inline-block;
-  background-color: yellow;
+  color: #856404;
+  background-color: #fff3cd;
+  border-color: #ffeeba;
 }
