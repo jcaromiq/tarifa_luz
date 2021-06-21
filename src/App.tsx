@@ -6,7 +6,7 @@ function App() {
     const [zone, setZone] = useState(currentZone());
 
     useEffect(() => {
-        const interval = setInterval(() => setZone(currentZone()), 1000);
+        const interval = setInterval(() => setZone(currentZone()), 60000);
         return () => {
             clearInterval(interval);
         };
@@ -16,9 +16,9 @@ function App() {
     if (zone.weekend) {
         nextZone = <p className="display-6">Lunes a las {zone.to}</p>
         current = <p className="display-6"> Todo el día</p>
-        } else {
+    } else {
         nextZone = <p className="display-6">A las {zone.to}</p>
-        current = <p className="display-6"> De {zone.from} a {zone.to}</p>        
+        current = <p className="display-6"> De {zone.from} a {zone.to}</p>
     }
     return (
         <div className="container p-4">
@@ -34,9 +34,9 @@ function App() {
                 <div><p className={"text-uppercase display-4 zone " + zone.next}>Hora {zone.next}</p></div>
 
             </div>
-            <p className="lead p-5">Hecho con <a href="https://www.buymeacoffee.com/jcaro" target="_blank"
-                                                 rel="noreferrer">❤️</a> por <a
-                href="https://github.com/jcaromiq/" target="_blank" rel="noreferrer">Joaco</a></p>
+            <p className="lead p-5">Hecho con <a className="text-decoration-none" href="https://www.buymeacoffee.com/jcaro" target="_blank"
+                                                 rel="noreferrer">☕️️</a> por <a
+                className="text-decoration-none" href="https://github.com/jcaromiq/tarifa_luz" target="_blank" rel="noreferrer">Joaco</a></p>
         </div>
     );
 }
