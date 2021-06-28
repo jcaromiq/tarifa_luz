@@ -1,5 +1,5 @@
 import {parse} from "https://deno.land/std@0.99.0/datetime/mod.ts";
-
+import {ensureDirSync} from "https://deno.land/std@0.99.0/fs/mod.ts";
 const TOKEN = Deno.env.get("API_TOKEN");
 
 const response = await fetch("https://api.esios.ree.es/indicators/10391?geo_ids[]=8741", {
@@ -23,4 +23,5 @@ const file = {
     prices: prices,
     updatedAt
 }
-Deno.writeTextFileSync("public/prices.json", JSON.stringify(file))
+ensureDirSync("public/data")
+Deno.writeTextFileSync("public/data/prices.json", JSON.stringify(file))
