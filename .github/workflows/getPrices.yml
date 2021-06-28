@@ -7,13 +7,11 @@ jobs:
   scheduled:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: Setup deno
         uses: denoland/setup-deno@main
         with:
           deno-version: v1.10.x
-      - name: Check out repo
-        uses: actions/checkout@v2
-      - name: get data
       - run: |
           API_TOKEN=${{ secrets.API_TOKEN }} deno run --allow-net  --allow-env --allow-write scripts/fetch.ts
           git config user.name jcaromiq
