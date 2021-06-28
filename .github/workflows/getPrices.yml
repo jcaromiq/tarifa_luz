@@ -22,8 +22,8 @@ jobs:
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
-          local-dir: ./public/data/prices.json
-          server-dir: /luz/data/prices.json
+          local-dir: ./public/data/
+          server-dir: /luz/data/
           server: ${{ secrets.ftp_server }}
           username: ${{ secrets.ftp_username }}
           password: ${{ secrets.ftp_password }}
