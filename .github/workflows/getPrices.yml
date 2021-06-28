@@ -1,4 +1,4 @@
-name: GetPrices
+name: Get the prices
 on:
   schedule:
     - cron: 0 20 * * *
@@ -14,8 +14,8 @@ jobs:
       - name: Check out repo
         uses: actions/checkout@v2
       - name: get data
-      - run: API_TOKEN=${{ secrets.API_TOKEN }} deno run --allow-net  --allow-env --allow-write scripts/fetch.ts
       - run: |
+          API_TOKEN=${{ secrets.API_TOKEN }} deno run --allow-net  --allow-env --allow-write scripts/fetch.ts
           git config user.name jcaromiq
           git config user.email jcaromiq@gmail.com>
           git add .
