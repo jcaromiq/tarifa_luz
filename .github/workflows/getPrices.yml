@@ -17,7 +17,7 @@ jobs:
           git config user.name jcaromiq
           git config user.email jcaromiq@gmail.com
           git add .
-          git commit -m "get prices for today"
+          git commit -m "get prices for today" || true
           git push
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
