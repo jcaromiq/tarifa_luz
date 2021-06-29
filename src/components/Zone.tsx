@@ -1,7 +1,12 @@
 import React from "react";
 
+interface Props {
+    title: string,
+    name: string,
+    description: string,
+}
 
-function Zone({title, name, description}:any) {
+function Zone({title, name, description}: Props) {
     return (
         <div className="card-body">
             <h2 className="display-2 border-bottom"><strong>{title}</strong></h2>
