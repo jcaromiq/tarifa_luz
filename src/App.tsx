@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import {zone as currentZone} from "./model/Zone";
 import useInterval from "./hooks/useInterval";
 import './App.css';
+import Footer from "./components/Footer";
 
 function App() {
     const [zone, setZone] = useState(currentZone());
@@ -27,11 +28,7 @@ function App() {
                     <p className={"text-uppercase display-4 zone " + zone.next}>Hora {zone.next}</p>
                 </div>
             </div>
-            <p className="lead p-5">Hecho con <a className="text-decoration-none"
-                                                 href="https://www.buymeacoffee.com/jcaro" target="_blank"
-                                                 rel="noreferrer">☕️️</a> por <a
-                className="text-decoration-none" href="https://github.com/jcaromiq/tarifa_luz" target="_blank"
-                rel="noreferrer">Joaco</a></p>
+            <Footer/>
         </div>
     );
 }
