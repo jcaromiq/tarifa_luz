@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {zone as currentZone} from "./model/Zone";
+import {zone as currentZone} from "./domain/Zone";
 import useInterval from "./hooks/useInterval";
 import './App.css';
 import Footer from "./components/Footer";
@@ -16,14 +16,14 @@ function App() {
         <div className="container p-4">
             <div className="card-body">
                 <h2 className="display-2 border-bottom"><strong>Franja actual</strong></h2>
-                <p className="display-6">{zone.weekend ? 'Todo el dia' : `De ${zone.from} a ${zone.to}`}</p>
+                <p className="display-6">{zone.currentZoneLabel()}</p>
                 <div>
                     <p className={"text-uppercase display-4 zone " + zone.current}>Hora {zone.current}</p>
                 </div>
             </div>
             <div className="card-body">
                 <h2 className="display-3 border-bottom"><strong>Franja siguiente</strong></h2>
-                <p className="display-6">{zone.weekend ? `Lunes a las ${zone.to}` : `A las ${zone.to}`}</p>
+                <p className="display-6">{zone.nextZoneLabel()}</p>
                 <div>
                     <p className={"text-uppercase display-4 zone " + zone.next}>Hora {zone.next}</p>
                 </div>
