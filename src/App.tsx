@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {zone as currentZone} from "./Zone";
-import useInterval from "./useInterval";
+import useInterval from "./hooks/useInterval";
 import './App.css';
 
 function App() {
