@@ -14,7 +14,12 @@ export class Zone {
     next: ZoneEnum;
 
 
-    constructor(id: number, current: ZoneEnum, weekend: boolean, from: number, to: number, next: ZoneEnum) {
+    constructor(id: number,
+                current: ZoneEnum,
+                weekend: boolean,
+                from: number,
+                to: number,
+                next: ZoneEnum) {
         this.id = id;
         this.current = current;
         this.weekend = weekend;
@@ -23,15 +28,15 @@ export class Zone {
         this.next = next;
     }
 
-    nextZoneLabel():string {
-        if(this.weekend) {
+    nextZoneLabel(): string {
+        if (this.weekend) {
             return `Lunes a las ${this.to}`
         }
         return `A las ${this.to}`
     }
 
-    currentZoneLabel():string {
-        if(this.weekend) {
+    currentZoneLabel(): string {
+        if (this.weekend) {
             return `Todo el dia`
         }
         return `De ${this.from} a ${this.to}`
@@ -48,7 +53,8 @@ const zones: Zone[] = [
     new Zone(6, ZoneEnum.Punta, false, 18, 22, ZoneEnum.Llana),
     new Zone(7, ZoneEnum.Llana, false, 22, 24, ZoneEnum.Valle)]
 
-export function zone(): Zone {
+
+export function currentZone(): Zone {
     let date = new Date()
     const currentHour = date.getHours()
     const isWeekend = date.getDay() === 0 || date.getDay() === 6
@@ -60,5 +66,5 @@ export function zone(): Zone {
     return zones
         .filter(value => !value.weekend)
         .find(inRange)!
-
 }
+

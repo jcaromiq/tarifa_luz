@@ -1,27 +1,14 @@
-import React, {useState} from "react";
-import {zone as currentZone} from "./domain/Zone";
-import useInterval from "./hooks/useInterval";
 import './App.css';
-import Footer from "./components/Footer";
-import Zone from "./components/Zone";
+import {QueryClient, QueryClientProvider,} from "react-query"
+import Main from "./components/Main";
 
 function App() {
-    const [zone, setZone] = useState(currentZone());
-
-    useInterval(() => {
-        setZone(currentZone())
-    }, 1000)
+    const queryClient = new QueryClient()
 
     return (
-        <div className="container p-4">
-            <Zone title="Franja actual"
-                  name={zone.current}
-                  description={zone.currentZoneLabel()}/>
-            <Zone title="Franja siguiente"
-                  name={zone.next}
-                  description={zone.nextZoneLabel()}/>
-            <Footer/>
-        </div>
+        <QueryClientProvider client={queryClient}>
+            <Main/>
+        </QueryClientProvider>
     );
 }
 
