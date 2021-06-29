@@ -12,7 +12,6 @@ function App() {
         setZone(currentZone())
     }, 1000)
 
-
     return (
         <div className="container p-4">
             <Zone title="Franja actual"

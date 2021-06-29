@@ -1,5 +1,3 @@
-import React from "react";
-
 function Footer() {
     return (
         <p className="lead p-5">Hecho con <a className="text-decoration-none"
