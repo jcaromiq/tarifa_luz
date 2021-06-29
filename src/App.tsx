@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {zone as currentZone} from "./Zone";
+import {zone as currentZone} from "./model/Zone";
 import useInterval from "./hooks/useInterval";
 import './App.css';
 
@@ -19,7 +19,6 @@ function App() {
                 <div>
                     <p className={"text-uppercase display-4 zone " + zone.current}>Hora {zone.current}</p>
                 </div>
-
             </div>
             <div className="card-body">
                 <h2 className="display-3 border-bottom"><strong>Franja siguiente</strong></h2>
@@ -27,7 +26,6 @@ function App() {
                 <div>
                     <p className={"text-uppercase display-4 zone " + zone.next}>Hora {zone.next}</p>
                 </div>
-
             </div>
             <p className="lead p-5">Hecho con <a className="text-decoration-none"
                                                  href="https://www.buymeacoffee.com/jcaro" target="_blank"
