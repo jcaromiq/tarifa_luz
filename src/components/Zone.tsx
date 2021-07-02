@@ -2,7 +2,7 @@ interface Props {
     title: string,
     name: string,
     description: string,
-    currentPrice?: any
+    currentPrice?: number
 }
 
 function Zone({title, name, description, currentPrice}: Props) {
@@ -10,9 +10,14 @@ function Zone({title, name, description, currentPrice}: Props) {
         <div className="card-body">
             <h2 className="display-2 border-bottom"><strong>{title}</strong></h2>
             <p className="display-6">{description}</p>
-            <div className={"zone " + name}>
-                <p className={"display-4 text-uppercase"}>Hora {name}</p>
-                {currentPrice ? <p className={"display-6 "}>{currentPrice} €/kWh</p> : ""}
+            <div className={"zone d-flex flex-column " + name}>
+                <p className={"display-4 mb-0 text-uppercase"}>Hora {name}</p>
+                {currentPrice ?
+                    <div className={"d-flex flex-row justify-content-center"}>
+                        <p className={"display-6 mb-0 "}>{currentPrice} €/kWh</p>
+                    </div>
+                    :
+                    ""}
             </div>
         </div>
     )

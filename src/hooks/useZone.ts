@@ -7,7 +7,9 @@ import moment from "moment";
 
 const getCurrentPrice = (data: any) => {
     const now = moment().format('YYYY-MM-DD[T]HH:00:00.000Z');
-    return data.prices.find((j: any) => j.datetime === now).price;
+    return data.prices
+        .find((price: any) => price.datetime === now)
+        ?.price
 };
 
 const useZone = () => {
