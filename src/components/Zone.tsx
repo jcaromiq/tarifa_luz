@@ -1,3 +1,5 @@
+import PriceExamples from "./PricesExamples";
+
 interface Props {
     title: string,
     name: string,
@@ -14,7 +16,8 @@ function Zone({title, name, description, currentPrice}: Props) {
                 <p className={"display-4 mb-0 text-uppercase"}>Hora {name}</p>
                 {currentPrice ?
                     <div className={"d-flex flex-row justify-content-center"}>
-                        <p className={"display-6 mb-0 "}>{currentPrice} €/kWh</p>
+                        <p className={"display-6 mb-0 "}>{currentPrice.toLocaleString()} €/kWh</p>
+                        <PriceExamples price={currentPrice}/>
                     </div>
                     :
                     ""}
