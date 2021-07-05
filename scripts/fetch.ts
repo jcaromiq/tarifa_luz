@@ -38,7 +38,7 @@ function parseData(jsonData: any): Prices {
     })
 
     return {
-        prices: prices,
+        prices,
         updatedAt
     }
 }
