@@ -35,8 +35,8 @@ function PriceExamples({price}: Props) {
             trigger={<Icon name="question circle" size="large"/>}>
             <Header content={"Cuanto te costaría:"}/>
             <List>
-                {prices.map(i =>
-                    <List.Item>{i.description}: {i.value.toLocaleString()}€</List.Item>
+                {prices.map((price, i) =>
+                    <List.Item key={i}>{price.description}: {price.value.toLocaleString()}€</List.Item>
                 )}
             </List>
         </Popup>
