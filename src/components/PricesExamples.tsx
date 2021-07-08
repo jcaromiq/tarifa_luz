@@ -5,7 +5,7 @@ const items = [
     {description: "Poner una lavadora", kwh: 1, hours: 1},
     {description: "Poner una secadora", kwh: 2, hours: 1.5},
     {description: "Poner el lavavajillas", kwh: 1.74, hours: 1.5},
-    {description: "Cocinar 60 minutos en el horno", kwh: 1.2, hours: 1},
+    {description: "Cocinar 60 minutos en el horno", kwh: 1.3, hours: 1.2},
 ]
 
 interface Props {
