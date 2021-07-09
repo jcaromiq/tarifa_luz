@@ -22,7 +22,7 @@ const useZone = () => {
         setZone(currentZone())
         setPrice(getCurrentPrice(data))
 
-    }, 30000)
+    }, 1000)
     return {zone, price}
 };
 
