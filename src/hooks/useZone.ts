@@ -18,7 +18,6 @@ const getNextPrice = (data: any, next: NextZone) => {
         time = moment().format(`YYYY-MM-DD[T]${next.from}:00:00.000Z`);
     } else {
         time = moment().add(1, "days").format(`YYYY-MM-DD[T]${next.from}:00:00.000Z`)
-        console.log(time)
     }
 
     return data.prices
