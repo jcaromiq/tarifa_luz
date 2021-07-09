@@ -15,9 +15,14 @@ const getCurrentPrice = (data: any) => {
 const getNextPrice = (data: any, next: NextZone) => {
     let time: String
     if (next.sameDay) {
-        time = moment().format(`YYYY-MM-DD[T]${next.from}:00:00.000Z`);
+        time = moment()
+            .set({'hours': next.from})
+            .format('YYYY-MM-DD[T]HH:00:00.000Z');
     } else {
-        time = moment().add(1, "days").format(`YYYY-MM-DD[T]${next.from}:00:00.000Z`)
+        time = moment()
+            .add(1, "days")
+            .set({'hours': next.from})
+            .format('YYYY-MM-DD[T]HH:00:00.000Z');
     }
 
     return data.prices
