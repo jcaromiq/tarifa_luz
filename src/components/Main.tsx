@@ -4,16 +4,17 @@ import useZone from "../hooks/useZone";
 
 function Main() {
 
-    const {zone, price} = useZone()
+    const {zone, currentPrice, nextPrice} = useZone()
 
     return (
         <div className="container p-4">
             <Zone title="Franja actual"
                   name={zone.current}
                   description={zone.currentZoneLabel()}
-                  currentPrice={price}/>
+                  price={currentPrice}/>
             <Zone title="Franja siguiente"
-                  name={zone.next}
+                  name={zone.next.zone}
+                  price={nextPrice}
                   description={zone.nextZoneLabel()}/>
             <Footer/>
         </div>

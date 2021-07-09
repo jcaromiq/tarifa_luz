@@ -1,5 +1,5 @@
 import {useState} from "react";
-import {currentZone} from "../domain/ZoneRepository";
+import {currentZone, NextZone} from "../domain/ZoneRepository";
 import {useQuery} from "react-query";
 import {prices} from "../domain/PriceRepository";
 import useInterval from "./useInterval";
@@ -12,18 +12,34 @@ const getCurrentPrice = (data: any) => {
         ?.price
 };
 
+const getNextPrice = (data: any, next: NextZone) => {
+    let time: String
+    if (next.sameDay) {
+        time = moment().format(`YYYY-MM-DD[T]${next.from}:00:00.000Z`);
+    } else {
+        time = moment().add(1, "days").format(`YYYY-MM-DD[T]${next.from}:00:00.000Z`)
+        console.log(time)
+    }
+
+    return data.prices
+        .find((price: any) => price.datetime === time)
+        ?.price
+};
+
 const useZone = () => {
     const [zone, setZone] = useState(currentZone());
-    const [price, setPrice] = useState();
+    const [currentPrice, setCurrentPrice] = useState();
+    const [nextPrice, setNextPrice] = useState();
 
     const {data} = useQuery('pricesData', prices)
 
     useInterval(() => {
         setZone(currentZone())
-        setPrice(getCurrentPrice(data))
+        setCurrentPrice(getCurrentPrice(data))
+        setNextPrice(getNextPrice(data, currentZone().next))
 
     }, 1000)
-    return {zone, price}
+    return {zone, currentPrice, nextPrice}
 };
 
 export default useZone

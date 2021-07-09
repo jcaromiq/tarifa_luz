@@ -4,6 +4,19 @@ export enum ZoneEnum {
     Llana = "llana",
 }
 
+export class NextZone {
+    zone: ZoneEnum;
+    from: number;
+    to: number;
+    sameDay: boolean;
+
+    constructor(zone: ZoneEnum, from: number, to: number, sameDay: boolean) {
+        this.zone = zone;
+        this.from = from;
+        this.to = to;
+        this.sameDay = sameDay;
+    }
+}
 
 export class Zone {
     id: number;
@@ -11,7 +24,7 @@ export class Zone {
     weekend: boolean;
     from: number;
     to: number;
-    next: ZoneEnum;
+    next: NextZone;
 
 
     constructor(id: number,
@@ -19,7 +32,7 @@ export class Zone {
                 weekend: boolean,
                 from: number,
                 to: number,
-                next: ZoneEnum) {
+                next: NextZone) {
         this.id = id;
         this.current = current;
         this.weekend = weekend;
@@ -45,13 +58,13 @@ export class Zone {
 }
 
 const zones: Zone[] = [
-    new Zone(1, ZoneEnum.Valle, true, 0, 8, ZoneEnum.Punta),
-    new Zone(2, ZoneEnum.Valle, false, 0, 8, ZoneEnum.Llana),
-    new Zone(3, ZoneEnum.Llana, false, 8, 10, ZoneEnum.Punta),
-    new Zone(4, ZoneEnum.Punta, false, 10, 14, ZoneEnum.Llana),
-    new Zone(5, ZoneEnum.Llana, false, 14, 18, ZoneEnum.Punta),
-    new Zone(6, ZoneEnum.Punta, false, 18, 22, ZoneEnum.Llana),
-    new Zone(7, ZoneEnum.Llana, false, 22, 24, ZoneEnum.Valle)]
+    new Zone(1, ZoneEnum.Valle, true, 0, 8, {from: 8, to: 10, zone: ZoneEnum.Llana, sameDay: false}),
+    new Zone(2, ZoneEnum.Valle, false, 0, 8, {from: 8, to: 10, zone: ZoneEnum.Llana, sameDay: true}),
+    new Zone(3, ZoneEnum.Llana, false, 8, 10, {from: 10, to: 14, zone: ZoneEnum.Punta, sameDay: true}),
+    new Zone(4, ZoneEnum.Punta, false, 10, 14, {from: 14, to: 18, zone: ZoneEnum.Llana, sameDay: true}),
+    new Zone(5, ZoneEnum.Llana, false, 14, 18, {from: 18, to: 22, zone: ZoneEnum.Punta, sameDay: true}),
+    new Zone(6, ZoneEnum.Punta, false, 18, 22, {from: 22, to: 24, zone: ZoneEnum.Llana, sameDay: true}),
+    new Zone(7, ZoneEnum.Llana, false, 22, 24, {from: 0, to: 8, zone: ZoneEnum.Valle, sameDay: false})]
 
 
 export function currentZone(): Zone {
