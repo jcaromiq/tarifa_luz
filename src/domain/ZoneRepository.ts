@@ -50,7 +50,7 @@ export class Zone {
 
     currentZoneLabel(): string {
         if (this.weekend) {
-            return `Todo el dia`
+            return `Todo el día`
         }
         return `De ${this.from} a ${this.to}`
     }
