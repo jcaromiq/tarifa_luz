@@ -1,8 +1,8 @@
 import {useState} from "react";
-import {currentZone, NextZone} from "../domain/ZoneRepository";
+import {currentZone, NextZone} from "domain/ZoneRepository";
 import {useQuery} from "react-query";
-import {prices} from "../domain/PriceRepository";
-import useInterval from "./useInterval";
+import {prices} from "domain/PriceRepository";
+import useInterval from "hooks/useInterval";
 import moment from "moment";
 
 const getCurrentPrice = (data: any) => {

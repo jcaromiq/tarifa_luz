@@ -1,4 +1,4 @@
-import {currentZone, ZoneEnum} from "./ZoneRepository"
+import {currentZone, ZoneEnum} from "domain/ZoneRepository"
 
 describe("range hours", () => {
 

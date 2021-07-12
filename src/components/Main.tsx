@@ -1,6 +1,6 @@
-import Zone from "./Zone";
-import Footer from "./Footer";
-import useZone from "../hooks/useZone";
+import Zone from "components/Zone";
+import Footer from "components/Footer";
+import useZone from "hooks/useZone";
 
 function Main() {
 

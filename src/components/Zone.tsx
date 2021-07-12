@@ -1,4 +1,4 @@
-import PriceExamples from "./PricesExamples";
+import PriceExamples from "components/PricesExamples";
 
 interface Props {
     title: string,

@@ -1,6 +1,6 @@
 import './App.css';
 import {QueryClient, QueryClientProvider,} from "react-query"
-import Main from "./components/Main";
+import Main from "components/Main";
 
 function App() {
     const queryClient = new QueryClient()
