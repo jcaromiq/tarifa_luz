@@ -27,7 +27,7 @@ async function tweet(price: Price) {
             tweetMessage = "🟡 Zona Llana\n";
             break;
     }
-    tweetMessage += `⏰ ${price.zone.from}:00 - ${price.zone.to}:00\n💰${price.value} €/kWh`
+    tweetMessage += `⏰ ${price.zone.from}:00 - ${price.zone.to}:00\n💰${price.value} €/kWh\nMás info en https://luz.joaquin-caro.es/\n#PrecioLuz`
     let {status} = await twitterApi.request("POST", "statuses/update.json", {
         status: tweetMessage
     });
