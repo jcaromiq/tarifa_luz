@@ -41,7 +41,8 @@ async function getPrice(): Promise<Price> {
     const response = await fetch('http://worldtimeapi.org/api/timezone/Europe/Madrid')
     const {datetime, utc_offset} = await response.json();
     let m = moment(datetime);
-    let currentTime = m.format('YYYY-MM-DD[T]HH:00:00.000Z');
+    m.setMinutes(0,0,0);
+    let currentTime = m.format();
     // const currentDate = new Date(datetime)
     //
     // let currentTime = format(currentDate,"yyyy-MM-ddTHH:00:00.000")+utc_offset
