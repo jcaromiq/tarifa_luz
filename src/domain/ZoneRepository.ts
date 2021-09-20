@@ -58,7 +58,7 @@ export class Zone {
 }
 
 const zones: Zone[] = [
-    new Zone(1, ZoneEnum.Valle, true, 0, 8, {from: 8, to: 10, zone: ZoneEnum.Llana, sameDay: false}),
+    new Zone(1, ZoneEnum.Valle, true, 0, 24, {from: 8, to: 10, zone: ZoneEnum.Llana, sameDay: false}),
     new Zone(2, ZoneEnum.Valle, false, 0, 8, {from: 8, to: 10, zone: ZoneEnum.Llana, sameDay: true}),
     new Zone(3, ZoneEnum.Llana, false, 8, 10, {from: 10, to: 14, zone: ZoneEnum.Punta, sameDay: true}),
     new Zone(4, ZoneEnum.Punta, false, 10, 14, {from: 14, to: 18, zone: ZoneEnum.Llana, sameDay: true}),
@@ -67,8 +67,7 @@ const zones: Zone[] = [
     new Zone(7, ZoneEnum.Llana, false, 22, 24, {from: 0, to: 8, zone: ZoneEnum.Valle, sameDay: false})]
 
 
-export function currentZone(): Zone {
-    let date = new Date()
+export function currentZone(date:Date = new Date()): Zone {
     const currentHour = date.getHours()
     const isWeekend = date.getDay() === 0 || date.getDay() === 6
     const inRange = (value: Zone) => currentHour >= value.from && currentHour < value.to;
@@ -80,4 +79,5 @@ export function currentZone(): Zone {
         .filter(value => !value.weekend)
         .find(inRange)!
 }
+
 

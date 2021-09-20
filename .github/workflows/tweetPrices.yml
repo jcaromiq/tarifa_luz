@@ -1,0 +1,16 @@
+name: 💵 Tweet the price each hour
+on:
+  schedule:
+    - cron: 1 * * * *
+  workflow_dispatch:
+jobs:
+  scheduled:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Get latest prices
+        uses: denoland/setup-deno@main
+        with:
+          deno-version: v1.10.x
+      - run: |
+          consumer_key=${{ secrets.CONSUMER_KEY }} consumer_secret=${{ secrets.CONSUMER_SECRET }} access_key=${{ secrets.ACCESS_KEY }} access_secret=${{ secrets.ACCESS_SECRET }}  deno run --allow-env --allow-net scripts/tweet_price.ts
