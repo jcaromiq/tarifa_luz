@@ -39,14 +39,9 @@ async function tweet(price: Price) {
 async function getPrice(): Promise<Price> {
     const response = await fetch('http://worldtimeapi.org/api/timezone/Europe/Madrid')
     const {datetime, utc_offset} = await response.json();
-    console.log("dataTime response = " + datetime);
-    console.log("offset response = " + utc_offset);
     const currentDate = new Date(datetime)
 
-    const date = format(currentDate, "yyyy-MM-dd")
-    const time = format(currentDate, "HH:00:00.000")
-
-    let currentTime = `${date}T${time}${utc_offset}`
+    let currentTime = format(currentDate,"yyyy-MM-ddTHH:00:00.000")+utc_offset
     console.log("currentTime ="+currentTime);
     const responsePrices = await fetch('http://luz.joaquin-caro.es/data/prices.json');
     const prices = await responsePrices.json();
