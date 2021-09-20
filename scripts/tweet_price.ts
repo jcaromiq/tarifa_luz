@@ -1,5 +1,5 @@
 import {TwitterApi, Keys} from "./twitterapi.ts";
-import {currentZone, Zone, ZoneEnum} from "../src/domain/ZoneRepository.ts"
+import {currentZoneWithMoment, Zone, ZoneEnum} from "../src/domain/ZoneRepository.ts"
 import moment from "https://deno.land/x/momentjs@2.29.1-deno/mod.ts";
 
 interface Price {
@@ -37,18 +37,19 @@ async function tweet(price: Price) {
 
 async function getPrice(): Promise<Price> {
     const response = await fetch('http://worldtimeapi.org/api/timezone/Europe/Madrid')
-    const {datetime, utc_offset} = await response.json();
+    const {datetime} = await response.json();
     let m = moment.parseZone(datetime);
     m.startOf('hour')
     let currentTime = m.format("YYYY-MM-DDTHH:mm:ss.SSSZ");
-    console.log(currentTime)
+    console.log("current " +currentTime)
 
     const responsePrices = await fetch('http://luz.joaquin-caro.es/data/prices.json');
     const prices = await responsePrices.json();
     let p = await prices.prices
         .find((price: any) => price.datetime === currentTime)
         ?.price;
-    return {value: p, zone: currentZone(m.toDate())}
+
+    return {value: p, zone: currentZoneWithMoment(m)}
 
 }
 

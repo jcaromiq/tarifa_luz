@@ -1,3 +1,5 @@
+
+
 export enum ZoneEnum {
     Valle = "valle",
     Punta = "punta",
@@ -80,4 +82,15 @@ export function currentZone(date:Date = new Date()): Zone {
         .find(inRange)!
 }
 
-
+export function currentZoneWithMoment(date:any): Zone {
+    const currentHour = date.hours()
+    const isWeekend = date.day() === 0 || date.day() === 6
+    const inRange = (value: Zone) => currentHour >= value.from && currentHour < value.to;
+    if (isWeekend) {
+        return zones
+            .find(value => value.weekend)!
+    }
+    return zones
+        .filter(value => !value.weekend)
+        .find(inRange)!
+}
