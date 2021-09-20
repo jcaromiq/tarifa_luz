@@ -29,9 +29,10 @@ async function tweet(price: Price) {
     }
     tweetMessage += `⏰ ${price.zone.from}:00 - ${price.zone.to}:00\n💰${price.value} €/kWh`
 
-    await twitterApi.request("POST", "statuses/update.json", {
+    let response = await twitterApi.request("POST", "statuses/update.json", {
         status: tweetMessage
     });
+    console.log(response);
 
 }
 
