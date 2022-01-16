@@ -1,6 +1,5 @@
-import {Header, Icon, List, Popup} from "semantic-ui-react";
 import {useEffect, useState} from "react";
-
+import ReactTooltip from 'react-tooltip'
 const items = [
     {description: "Poner una lavadora", kwh: 1, hours: 1},
     {description: "Poner una secadora", kwh: 2, hours: 1.5},
@@ -30,16 +29,20 @@ function PriceExamples({price}: Props) {
     }, [price])
 
     return (
-        <Popup
-            position="top center"
-            trigger={<Icon name="question circle" size="large"/>}>
-            <Header content={"Cuanto te costaría:"}/>
-            <List>
-                {prices.map((price, i) =>
-                    <List.Item key={i}>{price.description}: {price.value.toLocaleString()}€</List.Item>
+        <>
+          <div className={"cursor-pointer"} data-tip data-for="registerTip">
+            ❓
+          </div>
+  
+        <ReactTooltip id="registerTip" place="left" effect="float">
+          <div className="flex flex-col bg-gray-900 align-center">
+          {prices.map((price, i) =>
+                    <p key={i}>{price.description}: {price.value.toLocaleString()}€</p>
                 )}
-            </List>
-        </Popup>
+          </div>
+        </ReactTooltip>
+      </>
+        
     )
 }
 

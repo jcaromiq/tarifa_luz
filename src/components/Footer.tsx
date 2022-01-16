@@ -1,10 +1,15 @@
 function Footer() {
     return (
-        <p className="lead p-5">Hecho con <a className="text-decoration-none"
-                                             href="https://www.buymeacoffee.com/jcaro" target="_blank"
-                                             rel="noreferrer">☕️️</a> por <a
-            className="text-decoration-none" href="https://github.com/jcaromiq/tarifa_luz" target="_blank"
-            rel="noreferrer">Joaco</a></p>
+        <footer className="absolute bottom-20">
+            <div className="flex flex-row space-x-2">
+                <a className="border-dashed	border-b-2 text-base" href="https://blog.joaquin-caro.es" target="_blank" rel="noreferrer">Desarrollado por Joaco</a>
+                <span>•</span>
+                <a className="border-dashed	border-b-2 text-base" href="https://github.com/jcaromiq/tarifa_luz" rel="nofollow noreferrer" target="_blank">GitHub</a>
+                <span>•</span>
+                <a className="border-dashed	border-b-2 text-base" href="https://github.com/jcaromiq/tarifa_luz/issues/new" rel="nofollow noreferrer" target="_blank">Enviar sugerencia</a>
+            </div>
+        </footer>
+    
     )
 }
 
