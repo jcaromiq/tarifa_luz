@@ -20,7 +20,7 @@ function Chart() {
   const { data, isLoading } = useQuery("pricesData", prices);
   if (!isLoading) {
     return (
-      <div className="min-w-full h-52 pt-12 pl-12 pr-12">
+      <div className="min-w-full h-52 pt-12 pl-2 pr-12">
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart data={data.prices} width={500} height={200}>
             <XAxis dataKey="datetime" tickFormatter={formatXAxis} />

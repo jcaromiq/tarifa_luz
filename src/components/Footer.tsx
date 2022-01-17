@@ -1,6 +1,6 @@
 function Footer() {
     return (
-        <footer className="absolute bottom-14">
+        <footer className="pt-20">
             <div className="flex flex-col sm:flex-row gap-2 items-center">
                 <a className="border-dashed	border-b-2 text-base" href="https://blog.joaquin-caro.es" target="_blank" rel="noreferrer">Desarrollado por Joaco</a>
                 <span className="sm:block hidden">•</span>
