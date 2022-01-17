@@ -8,9 +8,9 @@ function Main() {
     const {zone, currentPrice, nextPrice} = useZone()
 
     return (
-        <div className='flex flex-col min-h-screen bg-white align-center place-items-center'>
+        <div className='flex flex-col min-h-screen bg-white place-items-center'>
            <Header/>
-            <div className="pt-8 flex flex-col space-y-12" >
+            <div className="pt-8 flex gap-12 flex-col sm:flex-row place-items-center" >
                 <Zone title="Actual"
                     name={zone.current}
                     description={zone.currentZoneLabel()}
