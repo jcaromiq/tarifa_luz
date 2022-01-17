@@ -9,6 +9,7 @@ const items = [
 
 interface Props {
     price?: number
+    zone: string
 }
 
 class Price {
@@ -21,7 +22,7 @@ class Price {
     }
 }
 
-function PriceExamples({price}: Props) {
+function PriceExamples({price, zone}: Props) {
     const [prices, setPrices] = useState(new Array<Price>());
     useEffect(() => {
         const c = items.map(p => new Price(p.kwh * p.hours * price!, p.description))
@@ -30,11 +31,11 @@ function PriceExamples({price}: Props) {
 
     return (
         <>
-          <div className={"cursor-pointer"} data-tip data-for="registerTip">
+          <div className={"cursor-pointer"} data-tip data-for={zone}>
             ❓
           </div>
   
-        <ReactTooltip id="registerTip" place="left" effect="float">
+        <ReactTooltip id={zone} place="left" effect="float">
           <div className="flex flex-col bg-gray-900 align-center">
           {prices.map((price, i) =>
                     <p key={i}>{price.description}: {price.value.toLocaleString()}€</p>

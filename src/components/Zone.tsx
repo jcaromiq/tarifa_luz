@@ -33,7 +33,7 @@ function Zone({ title, name, description, price }: Props) {
         {price ? (
           <div className={"flex flex-row justify-content-center"}>
             <p className="text-lg">💰{price.toLocaleString()} €/kWh</p>
-            <PriceExamples price={price} />
+            <PriceExamples zone={name} price={price} />
           </div>
         ) : (
           ""
