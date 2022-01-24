@@ -50,9 +50,9 @@ function Chart() {
   if (!isLoading) {
     return (
       <div className="min-w-full h-52 pt-12 pl-2 pr-12">
-        <ResponsiveContainer width="100%" height="100%">
-          <BarChart data={data.prices} width={500} height={200}>
-            <XAxis dataKey="datetime" label={"Hora"} tick={false} />
+        <ResponsiveContainer>
+          <BarChart data={data.prices}>
+            <XAxis dataKey="datetime" label={"Hora"} tick={false}   padding={{ left: 0, right: 0 }}  />
             <YAxis tickFormatter={formatYAxis} />
             <Tooltip content={<CustomTooltip />} />
             <CartesianGrid strokeDasharray="3 3" />
