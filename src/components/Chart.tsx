@@ -54,7 +54,7 @@ function Chart() {
           <BarChart data={data.prices}>
             <XAxis dataKey="datetime" label={"Hora"} tick={false}   padding={{ left: 0, right: 0 }}  />
             <YAxis tickFormatter={formatYAxis} />
-            <Tooltip content={<CustomTooltip />} />
+            <Tooltip content={<CustomTooltip />} animationDuration={0} />
             <CartesianGrid strokeDasharray="3 3" />
             <Bar dataKey="price" stroke="#8884d8">
               {data.prices.map((entry: any, index: number) => (
