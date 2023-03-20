@@ -22,7 +22,7 @@ function getPrices(): Promise<any> {
         `&end_date=${to}`, {
         method: "GET",
         headers: {
-            "Authorization": `Token token=${TOKEN}`,
+            "x-api-key": `${TOKEN}`,
         },
     })
     return response.then(j => j.json())
